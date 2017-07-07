@@ -5,8 +5,10 @@ class ReviewsController < ApplicationController
     @review = @product.reviews.new(review_params)
     @review.user = current_user
     if @review.save
+      flash[:notice] = "Review successfully added!"
       redirect_to user_product_path(@user, @product)
     else
+      flash[:alert] = "Sorry review not successfully added!"
       redirect_to user_product_path(@user, @product)
     end
   end

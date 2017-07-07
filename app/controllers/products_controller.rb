@@ -8,8 +8,10 @@ class ProductsController < ApplicationController
     @user = User.find(params[:user_id])
     @product = @user.products.new(product_params)
     if @product.save
+      flash[:notice] = "Product successfully added!"
       redirect_to user_products_path(@user)
     else
+      flash[:alert] = "Sorry product not successfully added!"
       render :new
     end
   end
@@ -36,8 +38,10 @@ class ProductsController < ApplicationController
     @user = User.find(params[:user_id])
     @product = Product.find(params[:id])
     if @product.update(product_params)
+      flash[:notice] = "Product successfully updated!"
       redirect_to user_products_path
     else
+      flash[:alert] = "Sorry product not successfully updated!"
       render :edit
     end
   end
