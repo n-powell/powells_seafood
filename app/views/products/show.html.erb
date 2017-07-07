@@ -1,0 +1,7 @@
+<h2><%= @product.title %></h2>
+<%= image_tag(@product.image)%>
+<p>by: <%= @user.email%></p>
+<% if @user == current_user%>
+<%= link_to "Edit product", edit_user_product_path(@user, @product)%>
+<%= link_to "Delete product", user_product_path(@user, @product), method: "delete"%>
+<% end %>
