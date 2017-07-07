@@ -3,7 +3,7 @@
 
 
 
-<%if @user.admin == true %>
+<%if @user.admin? %>
   <%= link_to "Add Product", new_user_product_path(@user)%>
   <% @products.each do |product|%>
     <div class="product well">
