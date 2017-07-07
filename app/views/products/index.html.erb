@@ -5,7 +5,7 @@
 
 <%if @user.admin? %>
   <%= link_to "Add Product", new_user_product_path(@user)%>
-  <% @products.each do |product|%>
+  <% @products.alph_order.each do |product|%>
     <div class="product well">
       <%= link_to(user_product_path(@user, product)) do %>
         <h2><%= (product.title) %></h2>
@@ -14,7 +14,7 @@
     </div>
   <% end %>
 <% else %>
-  <% @user.products.each do |product|%>
+  <% @user.products.alph_order.each do |product|%>
     <div class="product well">
       <%= link_to(user_product_path(@user, product)) do %>
         <h2><%= (product.title) %></h2>
