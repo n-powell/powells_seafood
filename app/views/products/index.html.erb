@@ -9,6 +9,7 @@
     <div class="product well">
       <%= link_to(user_product_path(@user, product)) do %>
         <h2><%= (product.title) %></h2>
+        <h4>Price per pound: $<%= (product.price) %>.00</h4>
          <%= image_tag(product.image)%>
        <% end %>
     </div>
@@ -18,6 +19,7 @@
     <div class="product well">
       <%= link_to(user_product_path(@user, product)) do %>
         <h2><%= (product.title) %></h2>
+        <h4>Price per pound: $<%= (product.price) %>.00</h4>
          <%= image_tag(product.image)%>
        <% end %>
     </div>

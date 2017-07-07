@@ -6,3 +6,11 @@ FactoryGirl.define do
     price("2.50")
   end
 end
+
+FactoryGirl.define do
+  factory(:user) do
+    email('nick@gmail.com')
+    password("qqqqqq")
+    admin(true)
+  end
+end
