@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
     product = @review.product
     user = product.user
     @review.destroy
+    flash[:notice] = "Review deleted!"
     redirect_to user_product_path(user, product)
   end
 
