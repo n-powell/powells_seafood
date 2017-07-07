@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
     @product = @user.products.find(params[:id])
     @new_review = @product.reviews.new
     @new_review.user = current_user
+    @current_user = current_user
   end
 
   def edit
