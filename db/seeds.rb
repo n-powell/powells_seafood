@@ -3,7 +3,7 @@ Review.destroy_all
 User.destroy_all
 
 1.times do |index|
-  User.create!(email: "test@gmail.com",
-                        password: "qqqqqq",
+  User.create!(email: "admin@gmail.com",
+                        password: "password",
                         admin: true)
 end
