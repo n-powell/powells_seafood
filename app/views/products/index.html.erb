@@ -17,7 +17,6 @@
   <% end %>
 
 <% else %>
-<%= link_to "Add Product", new_product_path(@user)%>
   <% @products.alph_order.each do |product|%>
     <div class="product well col-sm-3">
       <%= link_to(product_path(@user, product)) do %>
