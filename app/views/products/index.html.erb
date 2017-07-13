@@ -15,6 +15,7 @@
   <% end %>
 
 <% else %>
+  <h1 class="big-header" >Powells Foods Fine Products</h1>
   <% @products.alph_order.each do |product|%>
     <div class="product well col-sm-3">
       <%= link_to(product_path(product)) do %>
