@@ -1,11 +1,9 @@
-
-
-
-
 <%if @user.admin? %>
-<h1>Products</h1>
 
+<div class="container">
+  <h1 class="big-header" >Powells Foods Fine Products</h1>
   <p><%= link_to "Add Product", new_product_path(@user)%></p>
+</div>
   <% @products.alph_order.each do |product|%>
     <div class="product well col-sm-3">
       <%= link_to(product_path(product)) do %>
