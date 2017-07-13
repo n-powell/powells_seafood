@@ -7,3 +7,8 @@ User.destroy_all
                         password: "password",
                         admin: true)
 end
+
+1.times do |index|
+  User.create!(email: "user@gmail.com",
+                        password: "password")
+end

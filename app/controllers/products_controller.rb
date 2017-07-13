@@ -1,15 +1,14 @@
 class ProductsController < ApplicationController
   def new
     @user = current_user
-    @product = @user.products.new
+    @product = Product.new
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @product = @user.products.new(product_params)
+    @product = Product.new(product_params)
     if @product.save
       flash[:notice] = "Product successfully added!"
-      redirect_to user_products_path(@user)
+      redirect_to products_path(@user)
     else
       flash[:alert] = "Sorry product not successfully added!"
       render :new
@@ -22,8 +21,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @product = @user.products.find(params[:id])
+    @user = current_user
+    @product = Product.find(params[:id])
     @new_review = @product.reviews.new
     @new_review.user = current_user
     @current_user = current_user
@@ -35,11 +34,10 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:user_id])
     @product = Product.find(params[:id])
     if @product.update(product_params)
       flash[:notice] = "Product successfully updated!"
-      redirect_to user_products_path
+      redirect_to products_path
     else
       flash[:alert] = "Sorry product not successfully updated!"
       render :edit
@@ -49,7 +47,7 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to user_products_path
+    redirect_to products_path
   end
 
   private

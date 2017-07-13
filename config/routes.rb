@@ -2,10 +2,6 @@ Rails.application.routes.draw do
   root to: "products#welcome"
   devise_for :users
 
-  resources :user do
-    resources :products
-  end
-
   resources :products do
     resources :reviews
   end

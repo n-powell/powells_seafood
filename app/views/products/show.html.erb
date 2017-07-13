@@ -1,11 +1,13 @@
 <h2><%= @product.title %></h2>
 <%= image_tag(@product.image)%>
-<p>by: <%= @user.email%></p>
 
-<%if @user.admin? %>
-  <%= link_to "Edit product", edit_user_product_path(@user, @product)%>
-  <%= link_to "Delete product", user_product_path(@user, @product), method: "delete"%>
-<% end %>
+<div class="">
+    <%if @user.admin? %>
+    <%= link_to "Edit product", edit_product_path(@user, @product)%>
+    <%= link_to "Delete product", product_path(@user, @product), method: "delete"%>
+    <% end %>
+
+</div>
 
 <h4>Reviews</h4>
 <%= render "review_form"%>
@@ -14,7 +16,7 @@
     <% if review.id%>
       <li>
         "<%= review.comment%>" -
-        <%= link_to review.user.email, user_path(review.user)%>
+        <%= review.user.email%>
         <% if review.id && @current_user == review.user || @user.admin? %>
           <%= link_to "Delete review", product_review_path(@product, review), method: "delete" %>
         <% end %>
