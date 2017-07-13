@@ -12,3 +12,10 @@ end
   User.create!(email: "user@gmail.com",
                         password: "password")
 end
+
+20.times do |index|
+  Product.create!(title: "toast",
+                        image: "crab.jpg",
+                        price: "3",
+                        description: "Average product")
+end

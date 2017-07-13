@@ -17,7 +17,7 @@
       <li>
         "<%= review.comment%>" -
         <%= review.user.email%>
-        <% if review.id && @current_user == review.user || @user.admin? %>
+        <% if @user.admin == true %>
           <%= link_to "Delete review", product_review_path(@product, review), method: "delete" %>
         <% end %>
       </li>
