@@ -1,14 +1,14 @@
-<h1>Products</h1>
 
 
 
 
 <%if @user.admin? %>
+<h1>Products</h1>
 
   <p><%= link_to "Add Product", new_product_path(@user)%></p>
   <% @products.alph_order.each do |product|%>
     <div class="product well col-sm-3">
-      <%= link_to(product_path(@user, product)) do %>
+      <%= link_to(product_path(product)) do %>
         <h2><%= (product.title) %></h2>
         <h4>Price per pound: $<%= (product.price) %>.00</h4>
          <%= image_tag(product.image)%>
@@ -19,7 +19,7 @@
 <% else %>
   <% @products.alph_order.each do |product|%>
     <div class="product well col-sm-3">
-      <%= link_to(product_path(@user, product)) do %>
+      <%= link_to(product_path(product)) do %>
         <h2><%= (product.title) %></h2>
         <h4>Price per pound: <%= number_to_currency product.price %></h4>
          <%= image_tag(product.image)%>
