@@ -18,6 +18,9 @@
         <ul class="nav navbar-nav">
           <li><a href="/">Home</a></li>
           <li><a href="/products">Products</a></li>
+          <% if current_user.admin == true %>
+          <h5>Currently logged in as admin</h5>
+          <% end %>
         </ul>
         <ul class="nav navbar-right row">
           <% if current_user %>
