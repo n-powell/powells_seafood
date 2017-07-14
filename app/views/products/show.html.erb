@@ -5,22 +5,24 @@
   <p><small>Description:</small> <%= @product.description%></p>
 
   <div class="">
-    <%if @user.admin? %>
-    <%= link_to "Edit product", edit_product_path(@user, @product)%>
-    <%= link_to "Delete product", product_path(@user, @product), method: "delete"%>
+    <%if current_user && @user.admin %>
+    <%= link_to "Edit product", edit_product_path(@product)%>
+    <%= link_to "Delete product", product_path(@product), method: "delete"%>
     <% end %>
 
   </div>
 
   <h4>Reviews</h4>
-  <%= render "review_form"%>
+  <% if current_user %>
+    <%= render "review_form"%>
+  <% end %>
   <ul>
     <% @product.reviews.each do |review|%>
-    <% if review.id%>
+    <% if review.id %>
     <li>
       "<%= review.comment%>" -
       <%= review.user.email%>
-      <% if @user.admin == true %>
+      <% if current_user && current_user.admin %>
       <%= link_to "Delete review", product_review_path(@product, review), method: "delete" %>
       <% end %>
     </li>
